@@ -1,0 +1,46 @@
+﻿@model SocialNetwork.PL.Models.UniversalUserViewModel
+
+@{
+    ViewBag.Title = "Requests"; 
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>KPInet Web App</title>
+</head>
+    <body>
+        <h3>INPUT REQUESTS:</h3>
+        <table>
+            @foreach (var item in Model.ienumToUsersView)
+            {
+                <tr>
+                    <td>
+                        Request ID: @Html.DisplayFor(model => item.Id)
+                        @Html.DisplayFor(model => item.Name) to
+                        @Html.DisplayFor(model => item.SurName)
+                        @Html.ActionLink("Прийняти", "AddNewFriend", Model, item)
+                        @Html.ActionLink("Відхилити", "DeleteFriendRequests", Model, item)
+                    </td>
+                </tr>
+            }
+        </table>
+        <br />
+        <h3>OUTPUT REQUESTS:</h3>
+        <table>
+            @foreach (var item in Model.ienumFromUsersView)
+            {
+                <tr>
+                    <td>
+                        Request ID: @Html.DisplayFor(model => item.Id)
+                        @Html.DisplayFor(model => item.Name) to
+                        @Html.DisplayFor(model => item.SurName)
+                        @Html.ActionLink("Видалити", "DeleteFriendRequests", Model, item)
+                    </td>
+                </tr>
+            }
+        </table>
+    </body>
+</html>

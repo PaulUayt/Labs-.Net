@@ -1,0 +1,60 @@
+﻿@model SocialNetwork.PL.Models.UsersViewModel;
+
+@{
+    ViewData["Title"] = "MainPage";
+    
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main Page</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <div>
+        <ul>
+            <li><h3>@Html.ActionLink("Main page", "Main_p", Model)</h3></li>
+            <li><h3>@Html.ActionLink("Friends", "Friends", Model)</h3></li>
+            <li><h3>@Html.ActionLink("Chats", "friends", Model)</h3></li>
+            <li><h3>@Html.ActionLink("Exit", "Exit")</h3></li>
+        </ul>
+    </div>
+    
+    <div>
+        <table>
+            <tr>
+                <th>Info about user:</th>
+            </tr>
+            <tr>
+                <td>Повне ім'я: @Html.DisplayFor(model => model.SurName) @Html.DisplayFor(model => model.Name) @Html.DisplayFor(model => model.Patronymic)</td>
+            </tr>
+            <tr>
+                <td>ID: @Html.DisplayFor(model => model.Id)</td>
+            </tr>
+            <tr>
+                <td>Місто народження @Html.DisplayFor(model => model.BirthdayCity)</td>
+            </tr>
+            <tr>
+                <td>Дата народження: @Html.DisplayFor(model => model.Birthday)</td>
+            </tr>
+            <tr>
+                <td>Пошта: @Html.DisplayFor(model => model.Email)</td>
+            </tr>
+            <tr>
+                <td>Номер телефону: @Html.DisplayFor(model => model.Mobile)</td>
+            </tr>
+            <tr>
+                <td>Дата реєстрації: @Html.DisplayFor(model => model.RegistrationDate)</td>
+            </tr>
+            <tr>
+                <td>
+                    Кількість друзів: @ViewData["Count"]
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+</body>
+</html>
+

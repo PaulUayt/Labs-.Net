@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<SocialNetwork.PL.Models.UsersViewModel>
+
+@{
+    ViewBag.Title = "My friends";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>KPInet Web App</title>
+</head>
+<body>
+    <h3>MY FRIENDS:</h3>
+    <table>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(model => item.Name) @Html.DisplayFor(model => item.SurName)</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

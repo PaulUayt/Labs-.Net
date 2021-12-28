@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model SocialNetwork.PL.Models.UsersViewModel
+
+@{
+    ViewBag.Title = "Registration";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Autorisation</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <table align="center">
+        <tr>
+            <th>REGISTRATION</th>
+        </tr>
+
+        <tr>
+            <td>
+                @using (Html.BeginForm("RegisterUser", "Registration"))
+                {
+                    @Html.TextBoxFor(model => model.SurName, new { placeholder = "SurName", @type = "name" })<br>
+                    @Html.TextBoxFor(model => model.Name, new { placeholder = "Name", @type = "name" })<br>
+                    @Html.TextBoxFor(model => model.Patronymic, new { placeholder = "Patronymic", @type = "name" })<br>
+                    @Html.TextBoxFor(model => model.BirthdayCity, new { placeholder = "Birthday city", @type = "name" })<br>
+                    @Html.TextBoxFor(model => model.Birthday, new { placeholder = "Birthday", @type = "date" })<br>
+                    @Html.TextBoxFor(model => model.Email, new { placeholder = "E-mail", @type = "email" })<br>
+                    @Html.TextBoxFor(model => model.Mobile, new { placeholder = "Mobile", @type = "string" })<br>
+                    @Html.TextBoxFor(model => model.Password, new { placeholder = "Password", @type = "password" })<br>
+                    <input type="submit" name="reg" value="Registrate user" />
+                }
+            </td>
+        </tr>
+    </table>
+
+    @if (!string.IsNullOrWhiteSpace(ViewBag.Result))
+    {
+        <h3 align="center">@ViewBag.Result</h3>
+    }
+</body>
+</html>
